@@ -2,7 +2,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 
-data <- read.csv("derived_data/preprocessed_heart_failure.csv")
+data <- read_csv("derived_data/preprocessed_heart_failure.csv")
 
 figure1 <- ggplot(data, aes(x=age, fill=as.factor(DEATH_EVENT))) +
   geom_histogram(binwidth=5, alpha=0.5, position="dodge")   +

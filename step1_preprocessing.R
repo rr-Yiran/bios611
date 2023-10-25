@@ -20,5 +20,6 @@ data$DEATH_EVENT <- as.factor(data$DEATH_EVENT)
 log("Summary of %s",input_sd);
 log(summary(data))
 
+# why the preprocessed data still be read as numerical?
 ensure_directory("derived_data")
 write_csv(data, sprintf("derived_data/preprocessed_%s.csv", input_sd))
