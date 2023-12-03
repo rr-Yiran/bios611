@@ -27,8 +27,10 @@ figure2 <- ggplot(data, aes(x=factor(DEATH_EVENT), y=ejection_fraction, fill=fac
   theme_minimal() 
 ggsave(figure2, filename = "figures/figure2_ejection_fraction_by_death.png", height = 6, width = 10)
 
+# figure3 Correlation plot of numerical features
 numerical_data <- data %>% select(all_of(numerical_features))
-print(ggpairs(numerical_data))
+figure3 <- ggpairs(numerical_data)
+ggsave(figure3, filename = "figures/figure3_correlation_plot.png", height = 6, width = 10)
 
 
 
