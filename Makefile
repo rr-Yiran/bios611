@@ -5,12 +5,17 @@ clean:
 	rm logs/*
 	rm figures/*
 
+#.created-dirs:
+	#mkdir -p figures
+
+#derived_data
 derived_data/preprocessed_%.csv logs/preprocessed_%.csv:\
   source_data/%.csv step1_preprocessing.R
 	Rscript step1_preprocessing.R $*
 
-figures/figure1_age_by_death.png: figure1_age_by_death.R derived_data/preprocessed_heart_failure.csv
-	Rscript figure1_age_by_death.R
+# figures
+figures/figure1_age_by_death.png: step2_visualization.R derived_data/preprocessed_heart_failure.csv
+	Rscript step2_visualization.R
 
-figures/figure2_ejection_fraction_by_death.png: figure2_ejection_fraction_by_death.R derived_data/preprocessed_heart_failure.csv
-	Rscript figure2_ejection_fraction_by_death.R
+figures/figure2_ejection_fraction_by_death.png: step2_visualization.R derived_data/preprocessed_heart_failure.csv
+	Rscript step2_visualization.R
