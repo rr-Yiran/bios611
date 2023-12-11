@@ -2,9 +2,12 @@
 
 Author: Yiran Song
 
-Last Revision Date: 10/24/2023
+Last Revision Date: 12/11/2023
 
 ## Introduction
+
+![Heart_Disease](./Heart_Disease.png)
+
 Cardiovascular diseases (CVDs) are the number 1 cause of death globally, taking an estimated 17.9 million lives each year, which accounts for 31% of all deaths worldwide. Heart failure is a common event caused by CVDs and this dataset contains 12 features that can be used to predict mortality by heart failure.
 
 Most cardiovascular diseases can be prevented by addressing behavioral risk factors such as tobacco use, unhealthy diet and obesity, physical inactivity and harmful use of alcohol using population-wide strategies.
@@ -12,7 +15,7 @@ Most cardiovascular diseases can be prevented by addressing behavioral risk fact
 People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperglycemia or already established disease) need early detection and management wherein a machine learning model can be of great help.
 
 ## A Quick View of Datasets and Results
-- This project creates a model for predicting mortality caused by Heart Failure.
+- This project creates three models for predicting mortality caused by Heart Failure and evaluate the importance of explanatory variables.
 
 ### About the data:
 - age: Age of the patient
@@ -34,6 +37,31 @@ This repository can be built by Docker. This command will create a docker contai
 
 ```bash
 docker build -t 611 .
+```
+
+Then we can start our customized container with the following command
+
+```bash
+docker run -v $(pwd):/home/rstudio\
+           -p 8787:8787\
+           -p 8080:8080\
+           -e PASSWORD=yourpassword\
+           -it 611
+```
+You then visit http://localhost:8787 via a browser on your machine to access the machine and development environment.
+
+## What to Look at
+
+If you want to generate a specific result, you can also do so by entering the following command:
+
+```bash
+make figures/figure1_age_by_death.png
+```
+
+The following command generate the final report (you need to first generate the results included in the report):
+
+```bash
+make report.pdf
 ```
 
 ## Acknowledgement
