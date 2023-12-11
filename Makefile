@@ -34,3 +34,6 @@ figures/figure4_Response_Death_Events_plot.png: step2_visualization.R derived_da
 figures/figure_result_ROC_plot.png figures/figure_result_rf_importance.png: step3_modeling.R derived_data/preprocessed_heart_failure.csv
 	Rscript step3_modeling.R
 
+# Build the final report for the project
+report.pdf: Report.Rmd figures/figure1_age_by_death.png figures/figure2_ejection_fraction_by_death.png figures/figure3_correlation_plot.png figures/figure4_Response_Death_Events_plot.png figures/figure_result_ROC_plot.png figures/figure_result_rf_importance.png
+	Rscript -e "rmarkdown::render('./Report.Rmd')"
