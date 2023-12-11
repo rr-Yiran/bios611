@@ -28,9 +28,18 @@ figure2 <- ggplot(data, aes(x=factor(DEATH_EVENT), y=ejection_fraction, fill=fac
 ggsave(figure2, filename = "figures/figure2_ejection_fraction_by_death.png", height = 6, width = 10)
 
 # figure3 Correlation plot of numerical features
+numerical_features <- c("age", "creatinine_phosphokinase", "ejection_fraction", "platelets", "serum_creatinine", "serum_sodium")
 numerical_data <- data %>% select(all_of(numerical_features))
 figure3 <- ggpairs(numerical_data)
 ggsave(figure3, filename = "figures/figure3_correlation_plot.png", height = 6, width = 10)
 
-
+# figure4 Distribution of Death Events
+figure4 <- ggplot(data, aes(x = DEATH_EVENT)) +
+  geom_bar(fill = "steelblue", color = "black") +
+  labs(title = "Distribution of Death Events",
+       x = "Death Event",
+       y = "Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(hjust = 1))
+ggsave(figure4, filename = "figures/figure4_Response_Death_Events_plot.png", height = 6, width = 10)
 
