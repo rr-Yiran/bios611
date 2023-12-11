@@ -70,3 +70,5 @@ rf_plot <- ggplot(rf_importance) +
   theme_minimal() +
   labs(title = "Feature Importance for Random Forest")
 ggsave(rf_plot, filename = "figures/figure_result_rf_importance.png")
+
+save.image(file = "derived_data/model.RData")
